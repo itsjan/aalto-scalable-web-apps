@@ -1,0 +1,35 @@
+name: 'my-app'
+
+services:
+
+  db:
+    container_name: 'my-app-db'
+    image: postgres
+    restart: unless-stopped
+    ports:
+      - 5432
+    env_file:
+      - SAMPLE.env
+
+  flyway:
+    image: flyway/flyway
+    depends_on:
+      - db
+    volumes:
+      - ./flyway/sql/:/flyway/sql
+    command: -connectRetries=60 -baselineOnMigrate=true migrate
+    env_file:
+      - SAMPLE.env
+
+  app:
+    build: app
+    image: my-app
+    restart: unless-stopped
+    volumes:
+      - ./app:/app
+    depends_on:
+      - db
+    ports:
+      - 1993:1993
+    env_file:
+      - SAMPLE.env
