@@ -1,0 +1,11 @@
+name: 'my-app'
+
+services:
+  app:
+    build: app
+    image: my-app
+    restart: unless-stopped
+    volumes:
+      - ./app:/app
+    ports:
+      - 1993:1993

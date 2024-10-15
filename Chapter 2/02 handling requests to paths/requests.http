@@ -9,7 +9,7 @@ date: Tue, 15 Oct 2024 11:34:13 GMT
 
 Hello world at root!
 
-###
+### GET ALL ITEMS
 
 GET http://localhost:1993/items
 
@@ -21,9 +21,9 @@ date: Tue, 15 Oct 2024 11:34:50 GMT
 
 Retrieving all items.
 
-### GET
+### GET A SINGLE ITEMS
 
-GET http://localhost:1993/items/1
+GET http://localhost:1993/items/2
 
 HTTP/1.1 200 OK
 content-type: text/plain;charset=UTF-8
@@ -39,7 +39,7 @@ content-type: application/json
 
 {
     "name": "sample",
-    "time": "Wed, 21 Oct 2024 18:27:50 GMT"
+    "id": "4"
 }
 
 ### RESPONSE :
