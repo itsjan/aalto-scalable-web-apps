@@ -1,0 +1,11 @@
+name: 'assignment-simple-todo-json-api'
+
+services:
+  app:
+    build: app
+    image: assignment-simple-todo-json-api
+    restart: unless-stopped
+    volumes:
+      - ./app:/app
+    ports:
+      - 1994:7777
